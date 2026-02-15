@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Logs and reports
+*.log
+reports/
+
+# Pytest cache
+.pytest_cache/
+
+# Misc
+*.DS_Store
+
+#practice file
+practice.py
