@@ -124,12 +124,12 @@ def navigate_back_to_home(driver, max_attempts = 5):
 #
 #     if 'reset_app' in request.keywords:
 #         try:
-#             print("🔄 Resetting app to home screen (via BasePage)...")
+#             print(" Resetting app to home screen (via BasePage)...")
 #             base_page = BasePage(appium_driver)
 #             base_page.reset_to_home()
 #             time.sleep(5)
 #         except Exception as e:
-#             print(f"⚠️ Failed to reset app: {e}")
+#             print(f" Failed to reset app: {e}")
 #     yield
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
