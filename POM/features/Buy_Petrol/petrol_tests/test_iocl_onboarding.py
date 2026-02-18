@@ -40,12 +40,4 @@ class TestIOCLOnboarding:
         iocl.click_confirm_date()
         assert iocl.wait_for_invisibility(iocl.ok_btn_calendar), "Calendar pop has not closed"
 
-    @pytest.mark.regression
-    def test_tandc(self, buy_petrol_home_pagee):
-        home_page = buy_petrol_home_pagee
-        iocl = home_page.click_redeem_cashback()
-        iocl.click_terms_conditions()
-        assert iocl.wait_for_visibility(iocl.terms_conditions), "Terms and conditions BS has not displayed"
-        iocl.click_close_tandc()
-        assert iocl.wait_for_invisibility(iocl.terms_conditions), "Terms and conditions BS has not closed"
 

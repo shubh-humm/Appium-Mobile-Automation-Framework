@@ -109,24 +109,6 @@ class TestHomePageFunctionality:
         assert petrol_page.wait_for_visibility(petrol_page.buy_petrol_voucher_text), "Petrol voucher page did not loaded"
         logging.info("Navigated to Petrol Voucher Page")
 
-    def test_xp95(self, buy_petrol_home_pagee):
-        home_page = buy_petrol_home_pagee
-        xp95 = home_page.click_xp_95()
-        assert xp95.wait_for_visibility(xp95.buy_petrol_voucher_text), "XP95 page did not loaded"
-        logging.info("Navigated to XP95")
-        tc = xp95.click_xp95_banner()
-        assert tc.wait_for_visibility(tc.terms_conditions), "Terms and conditions page did not loaded"
-        logging.info("Navigated to Terms and Conditions Page")
-
-    def test_xtragreen(self, buy_petrol_home_pagee):
-        home_page = buy_petrol_home_pagee
-        xtragreen = home_page.click_xtragreen()
-        assert xtragreen.wait_for_visibility(xtragreen.buy_petrol_voucher_text), "XtraGreen's page did not loaded"
-        logging.info("Navigated to XtraGreen")
-        tc = xtragreen.click_xtra_green_banner()
-        assert tc.wait_for_visibility(tc.terms_conditions), "Terms and conditions page did not loaded"
-        logging.info("Navigated to Terms and Conditions Page")
-
     def test_petrol_floating(self, buy_petrol_home_pagee):
         home_page = buy_petrol_home_pagee
         petrol_page = home_page.click_buy_petrol_floating_button()

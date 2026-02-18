@@ -31,7 +31,7 @@ sys.path.insert(0, pom_abs)
 
 """--------------------------------------------SMOKE----------------------------------------------------"""
 
-# @pytest.mark.reset_app
+@pytest.mark.smoke
 def test_buy_voucher(buy_petrol_home_pagee):
     """
     buy petrol home page > clicks buy petrol btn > choose a payment voucher >
@@ -62,7 +62,7 @@ def test_buy_voucher(buy_petrol_home_pagee):
     assert petrol_voucher.wait_for_visibility(petrol_voucher.processing_payment), "Payment processing page is not loaded"
     logging.info("Payment processing page is loaded")
 
-# @pytest.mark.reset_app
+@pytest.mark.smoke
 def test_edit_email_id(buy_petrol_home_pagee):
     """
     petrol home page > click edit email btn > bs opens > enter and submit email > bs opens > clicks buy voucher CTA >
@@ -89,7 +89,7 @@ def test_edit_email_id(buy_petrol_home_pagee):
     petrol_voucher.click_proceed_to_pay()
     logging.info("Payment processing page is loaded")
 
-# @pytest.mark.reset_app
+@pytest.mark.smoke
 def test_buy_voucher_tabs(buy_petrol_home_pagee):
     """
     petrol home page > click on my vouchers > scroll if required and click on voucher card buy now >

@@ -32,8 +32,4 @@ def test_preset_values(fastag_recharge_payment_page):
     logging.info("preset card selected")
 
 
-# def test_change_bank_recharge_page(fastag_recharge_payment_page):
-#     recharge_page = fastag_recharge_payment_page
-#     recharge_page.click_change_bank()
-#
 
