@@ -34,7 +34,7 @@ class BasePage:
                 if attempt == 2:  # Last attempt
                     raise
                 self.logger.error("Could not click on the button")
-                time.sleep(1)
+                # time.sleep(1)
 
     def send_keys(self, locator, text, timeout = 10):
         element = WebDriverWait(self.driver, timeout).until(
@@ -72,7 +72,7 @@ class BasePage:
             EC.element_to_be_clickable(locator)
         )
         element.click()
-        time.sleep(0.2)
+        # time.sleep(0.2)
         element.clear()
         WebDriverWait(self.driver, 5).until(lambda x: element.text == "")
         element.send_keys(text)
@@ -81,7 +81,7 @@ class BasePage:
         logging.info("Resetting app to home screen...")
 
         self.driver.terminate_app("com.ovunque.parkwheels")
-        time.sleep(1.2)
+        # time.sleep(1.2)
         self.driver.activate_app("com.ovunque.parkwheels")
 
         # Wait for app to fully load (adjust time based on your device speed)
@@ -139,7 +139,7 @@ class BasePage:
         )
 
         element.click()
-        time.sleep(0.2)
+        # time.sleep(0.2)
 
         try:
             element.clear()
