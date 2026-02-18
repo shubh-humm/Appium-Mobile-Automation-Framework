@@ -114,50 +114,23 @@ def navigate_back_to_home(driver, max_attempts = 5):
         #     pass
 
 
-@pytest.fixture(scope="session")
-def chrome_driver():
-    appium_server_url = "http://127.0.0.1:4723"
 
-    options = UiAutomator2Options()
-    options.platformName = "Android"
-    options.deviceName = "Android Device"
-    options.automationName = "UiAutomator2"
-    options.browserName = "Chrome"
-    options.chromedriver_autodownload = True
-    options.newCommandTimeout = 300
-    options.nativeWebScreenshot = True
-    options.noReset = True
-    options.skipDeviceInitialization = True
-    options.skipServerInstallation = True
-    options.ignore_hidden_api_policy_error = True
-
-    print("🚀 Launching Chrome browser via Appium...")
-
-    driver = webdriver.Remote(appium_server_url, options=options)
-    print("✅ Chrome launched successfully on device!")
-
-    yield driver
-
-    driver.quit()
-    print("🛑 Chrome session closed.")
-
-
-@pytest.fixture(scope="function", autouse=True)
-def conditional_reset_app(request, appium_driver):
-    """
-    Resets the app only for tests marked with @pytest.mark.reset_app
-    """
-    # yield  # Test runs here
-
-    if 'reset_app' in request.keywords:
-        try:
-            print("🔄 Resetting app to home screen (via BasePage)...")
-            base_page = BasePage(appium_driver)
-            base_page.reset_to_home()
-            time.sleep(5)
-        except Exception as e:
-            print(f"⚠️ Failed to reset app: {e}")
-    yield
+# @pytest.fixture(scope="function", autouse=True)
+# def conditional_reset_app(request, appium_driver):
+#     """
+#     Resets the app only for tests marked with @pytest.mark.reset_app
+#     """
+#     # yield  # Test runs here
+#
+#     if 'reset_app' in request.keywords:
+#         try:
+#             print("🔄 Resetting app to home screen (via BasePage)...")
+#             base_page = BasePage(appium_driver)
+#             base_page.reset_to_home()
+#             time.sleep(5)
+#         except Exception as e:
+#             print(f"⚠️ Failed to reset app: {e}")
+#     yield
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -177,16 +150,4 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(path)
             logging.error(f"\nScreenshot saved to {path}")
 
-
-
-
-
-# @pytest.fixture(scope="session") #for seleniummmmmmmmmmmm
-# def selenium_driver():
-#     options = Options()
-#     options.add_argument("--start-maximized")
-#
-#     driver = selenium_webdriver.Chrome(options=options)
-#     yield driver
-#     driver.quit()
 
